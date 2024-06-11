@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light grey background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header, footer {
+            width: 100%;
+            background-color: #fff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav a, footer a {
+            margin: 0 0.5rem;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: #fff;
+            margin-top: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #fafafa;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-card:hover {
+            transform: scale(1.02);
+        }
+
+        .blog-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .blog-card a:hover {
+            text-decoration: underline;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .action-buttons a {
+            padding: 0.5rem 1rem;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            color: #3498db;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .action-buttons a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>My Blog</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="/addUpdateBlog">Add Blogs</a>
+            <a href="#">Contact</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to My Blog</h1>
+        <section>
+            <% blogs.map((blog) => { %>
+                <div class="blog-card">
+                    <img src="<%= blog.image %>" alt="Blog Image">
+                    <h2><%= blog.title %></h2>
+                    <p><%= blog.content %></p>
+                    <div class="action-buttons">
+                        <a href="/addUpdateBlog?id=<%= blog._id %>">Edit Blog</a>
+                        <a href="/deleteBlog?id=<%= blog._id %>">Delete Blog</a>
+                    </div>
+                </div>
+            <% }) %>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 My Blog. All rights reserved.
+    </footer>
+</body>
+
+</html>

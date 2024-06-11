@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog - My Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+            color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3498db;
+        }
+
+        .input-field,
+        .text-area {
+            background: #f9f9f9;
+            border: 2px solid #dcdde1;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            transition: border 0.3s;
+        }
+
+        .input-field:focus,
+        .text-area:focus {
+            border: 2px solid #3498db;
+            outline: none;
+        }
+
+        .file-upload {
+            background: #f9f9f9;
+            border: 2px dashed #dcdde1;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: border 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #3498db;
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .btn {
+            background: #3498db;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Add a New Blog Post</h2>
+        </div>
+        <form action="/addUpdateBlog" method="post" enctype="multipart/form-data">
+            <input type="text" id="title" name="title" placeholder="Title" class="input-field" required>
+            <input type="text" id="author" name="author" placeholder="Author" class="input-field" required>
+            <textarea id="content" name="content" rows="5" placeholder="Content" class="text-area" required></textarea>
+            <div class="file-upload">
+                <label for="file-upload" class="cursor-pointer">
+                    <span>Upload a file</span>
+                    <input id="file-upload" name="image" type="file">
+                </label>
+                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+            <button type="submit" class="btn">Add Blog Post</button>
+        </form>
+    </div>
+</body>
+
+</html>

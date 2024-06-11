@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            color: #3498db;
+        }
+
+        .input-field {
+            background: #f9f9f9;
+            border: 2px solid #dcdde1;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            transition: border 0.3s;
+        }
+
+        .input-field:focus {
+            border: 2px solid #3498db;
+            outline: none;
+        }
+
+        .btn {
+            background: #3498db;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="container">
+        <div class="header">
+            <h2>Login to My Blog</h2>
+        </div>
+        <form action="/login" method="post">
+            <input type="email" id="email" name="email" placeholder="Email" class="input-field" required>
+            <input type="password" id="password" name="password" placeholder="Password" class="input-field" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="footer">
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

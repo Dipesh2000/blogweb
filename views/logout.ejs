@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog - Login</title>
+    <script>
+        function confirmLogout() {
+            const confirmation = confirm("Are you sure you want to logout?");
+            if (confirmation) {
+                window.location.href = '/logout'; // Redirect to the logout endpoint
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Other nav links -->
+            <a href="#" onclick="confirmLogout()">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Login to My Blog</h1>
+        <form action="/login" method="post">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+</body>
+</html>
